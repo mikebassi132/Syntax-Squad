@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">SchoolBoardApp</string>
+    <string name="appointments">Appointments</string>
+    <string name="appointments_desc">Appointments icon</string>
+
+    <string name="map">Map</string>
+    <string name="map_desc">Campus map icon</string>
+
+    <string name="events">Events</string>
+    <string name="events_desc">Events icon</string>
+
+    <string name="chat">Chat</string>
+    <string name="chat_desc">Chat icon</string>
+
+    <string name="registration">Registration</string>
+    <string name="registration_desc">Registration icon</string>
+
+    <string name="profile">Student Profile</string>
+    <string name="profile_desc">Profile icon</string>
+
+    <string name="info">Information</string>
+    <string name="info_desc">Information icon</string>
+
+    <string name="billing">Billing</string>
+    <string name="billing_desc">Billing icon</string>
+
+    <string name="aid">Financial Aid</string>
+    <string name="aid_desc">Financial aid icon</string>
+
+    <string name="grad_plan">Grad Plan</string>
+    <string name="grad_plan_desc">Graduation plan icon</string>
+
 </resources>

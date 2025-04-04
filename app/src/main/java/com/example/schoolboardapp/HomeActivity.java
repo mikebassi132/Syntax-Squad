@@ -1,51 +1,55 @@
 package com.example.schoolboardapp;
 
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
-    // Declare buttons
-    private Button coursesButton;
-    private Button appointmentButton;
-    private Button mapButton;
-    private Button eventsButton;
-    private Button chatButton;
-    private Button myUfvButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // Initialize buttons by ID
-        coursesButton = findViewById(R.id.coursesButton);
-        appointmentButton = findViewById(R.id.appointmentButton);
-        mapButton = findViewById(R.id.mapButton);
-        eventsButton = findViewById(R.id.eventsButton);
-        chatButton = findViewById(R.id.chatButton);
-        myUfvButton = findViewById(R.id.myUfvButton);
+        setupGridClickListeners();
+    }
 
-        // Set click listeners
-        coursesButton.setOnClickListener(v ->
-                Toast.makeText(HomeActivity.this, "Courses clicked", Toast.LENGTH_SHORT).show());
+    private void setupGridClickListeners() {
+        findViewById(R.id.itemAppointments).setOnClickListener(v ->
+                showToast("Appointments clicked"));
 
-        appointmentButton.setOnClickListener(v ->
-                Toast.makeText(HomeActivity.this, "Appointments clicked", Toast.LENGTH_SHORT).show());
+        findViewById(R.id.itemMap).setOnClickListener(v ->
+                showToast("Map clicked"));
 
-        mapButton.setOnClickListener(v ->
-                Toast.makeText(HomeActivity.this, "Map clicked", Toast.LENGTH_SHORT).show());
+        findViewById(R.id.itemEvents).setOnClickListener(v ->
+                showToast("Events clicked"));
 
-        eventsButton.setOnClickListener(v ->
-                Toast.makeText(HomeActivity.this, "Events clicked", Toast.LENGTH_SHORT).show());
+        findViewById(R.id.itemChat).setOnClickListener(v ->
+                showToast("Chat clicked"));
 
-        chatButton.setOnClickListener(v ->
-                Toast.makeText(HomeActivity.this, "Chat clicked", Toast.LENGTH_SHORT).show());
+        findViewById(R.id.itemRegistration).setOnClickListener(v ->
+                showToast("Registration clicked"));
 
-        myUfvButton.setOnClickListener(v ->
-                Toast.makeText(HomeActivity.this, "MyUFV clicked", Toast.LENGTH_SHORT).show());
+        findViewById(R.id.itemProfile).setOnClickListener(v ->
+                showToast("Student Profile clicked"));
+
+        findViewById(R.id.itemInfo).setOnClickListener(v ->
+                showToast("Information clicked"));
+
+        findViewById(R.id.itemBilling).setOnClickListener(v ->
+                showToast("Billing clicked"));
+
+        findViewById(R.id.itemAid).setOnClickListener(v ->
+                showToast("Financial Aid clicked"));
+
+        findViewById(R.id.itemGradPlan).setOnClickListener(v ->
+                showToast("Grad Plan clicked"));
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

@@ -5,88 +5,232 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="24dp"
     tools:context=".HomeActivity">
 
-    <!-- Welcome Text -->
-    <TextView
-        android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to the Home Page!"
-        android:textSize="24sp"
-        android:textColor="@android:color/black"
-        android:gravity="center"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="120dp" />
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:padding="16dp"
+            android:useDefaultMargins="true"
+            android:alignmentMode="alignMargins">
 
-    <!-- Courses Button -->
-    <Button
-        android:id="@+id/coursesButton"
+            <LinearLayout
+                android:id="@+id/itemAppointments"
+                style="@style/DashboardGridItem"
+                android:layout_height="113dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/appointments_desc"
+                    android:src="@drawable/calendar_today" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/appointments"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/itemMap"
+                style="@style/DashboardGridItem"
+                android:layout_width="113dp"
+                android:layout_height="114dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/map_desc"
+                    android:src="@drawable/map" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/map"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/itemEvents"
+                style="@style/DashboardGridItem"
+                android:layout_width="111dp"
+                android:layout_height="114dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/events_desc"
+                    android:src="@drawable/event" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/events"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/itemChat"
+                style="@style/DashboardGridItem"
+                android:layout_width="119dp"
+                android:layout_height="115dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/chat_desc"
+                    android:src="@drawable/chat" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/chat"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/itemRegistration"
+                style="@style/DashboardGridItem"
+                android:layout_height="109dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/registration_desc"
+                    android:src="@drawable/registration" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/registration"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/itemProfile"
+                style="@style/DashboardGridItem"
+                android:layout_width="114dp"
+                android:layout_height="110dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/profile_desc"
+                    android:src="@drawable/person" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/profile"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/itemInfo"
+                style="@style/DashboardGridItem"
+                android:layout_width="123dp"
+                android:layout_height="107dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/info_desc"
+                    android:src="@drawable/information" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/info"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/itemBilling"
+                style="@style/DashboardGridItem"
+                android:layout_width="116dp"
+                android:layout_height="108dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/billing_desc"
+                    android:src="@drawable/billing" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/billing"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/itemAid"
+                style="@style/DashboardGridItem"
+                android:layout_width="wrap_content"
+                android:layout_height="107dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/aid_desc"
+                    android:src="@drawable/financial_aid" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/aid"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/itemGradPlan"
+                style="@style/DashboardGridItem"
+                android:layout_width="117dp"
+                android:layout_height="108dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/grad_plan_desc"
+                    android:src="@drawable/grad" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/grad_plan"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </GridLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Courses"
-        app:layout_constraintTop_toBottomOf="@id/welcomeText"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp" />
-
-    <!-- Appointments Button -->
-    <Button
-        android:id="@+id/appointmentButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Appointments"
-        app:layout_constraintTop_toBottomOf="@id/coursesButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp" />
-
-    <!-- Map Button -->
-    <Button
-        android:id="@+id/mapButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Map"
-        app:layout_constraintTop_toBottomOf="@id/appointmentButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp" />
-
-    <!-- Events Button -->
-    <Button
-        android:id="@+id/eventsButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Events"
-        app:layout_constraintTop_toBottomOf="@id/mapButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp" />
-
-    <!-- Chat Button -->
-    <Button
-        android:id="@+id/chatButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Chat"
-        app:layout_constraintTop_toBottomOf="@id/eventsButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp" />
-
-    <!-- MyUFV Button -->
-    <Button
-        android:id="@+id/myUfvButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="MyUFV"
-        app:layout_constraintTop_toBottomOf="@id/chatButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp" />
-
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
