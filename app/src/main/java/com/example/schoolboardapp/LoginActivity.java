@@ -49,11 +49,16 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(authResult -> {
                     Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
-                    // TODO: Navigate to dashboard or main app screen
+
+                    // Start HomeActivity
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Login failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
+
     }
 }
 
