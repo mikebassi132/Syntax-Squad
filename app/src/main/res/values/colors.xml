@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="ufv_green">#006341</color> <!-- Feel free to tweak if needed -->
+    <color name="colorPrimary">@color/ufv_green</color>
+    <color name="colorPrimaryVariant">@color/ufv_green</color>
+    <color name="colorOnPrimary">#FFFFFF</color> <!-- white text on green -->
+    <color name="on_ufv_green">#FFFFFF</color> <!-- White text for buttons -->
+</resources>
