@@ -1,20 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="24dp"
     tools:context=".HomeActivity">
 
+    <!-- Welcome Text -->
     <TextView
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Page"
+        android:text="Welcome to the Home Page!"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="120dp" />
+
+
+    <!-- Courses Button -->
+    <Button
+        android:id="@+id/coursesButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Courses"
+        app:layout_constraintTop_toBottomOf="@id/welcomeText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <!-- Appointments Button -->
+    <Button
+        android:id="@+id/appointmentButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Appointments"
+        app:layout_constraintTop_toBottomOf="@id/coursesButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <!-- Map Button -->
+    <Button
+        android:id="@+id/mapButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Map"
+        app:layout_constraintTop_toBottomOf="@id/appointmentButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <!-- Events Button -->
+    <Button
+        android:id="@+id/eventsButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Events"
+        app:layout_constraintTop_toBottomOf="@id/mapButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <!-- Chat Button -->
+    <Button
+        android:id="@+id/chatButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Chat"
+        app:layout_constraintTop_toBottomOf="@id/eventsButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <!-- MyUFV Button -->
+    <Button
+        android:id="@+id/myUfvButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="MyUFV"
+        app:layout_constraintTop_toBottomOf="@id/chatButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
