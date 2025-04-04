@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "158442807427",
+    "project_id": "schoolboardapp-9c739",
+    "storage_bucket": "schoolboardapp-9c739.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158442807427:android:44c3cd69c7e739bf35fbb6",
+        "android_client_info": {
+          "package_name": "com.example.schoolboardapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdcFWzziTktEUfYXIUTDfa0_vrGXreYfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
