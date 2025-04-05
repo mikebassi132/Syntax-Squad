@@ -22,7 +22,6 @@
 
         <activity android:name=".HomeActivity" />
         <activity android:name=".AppointmentsActivity" />
-        <activity android:name=".CoursesActivity" />
 
     </application>
 </manifest>

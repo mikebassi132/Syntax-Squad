@@ -51,8 +51,11 @@ public class HomeActivity extends AppCompatActivity {
         findViewById(R.id.itemRegistration).setOnClickListener(v ->
                 showToast("Registration clicked"));
 
-        findViewById(R.id.itemProfile).setOnClickListener(v ->
-                showToast("Student Profile clicked"));
+        findViewById(R.id.itemProfile).setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, StudentProfileActivity.class);
+            startActivity(intent);
+        });
+
 
         findViewById(R.id.itemInfo).setOnClickListener(v ->
                 showToast("Information clicked"));
