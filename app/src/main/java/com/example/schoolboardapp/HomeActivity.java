@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class HomeActivity extends AppCompatActivity {
 
     @Override
@@ -16,6 +18,16 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         setupGridClickListeners();
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_courses) {
+                Intent intent = new Intent(HomeActivity.this, CoursesActivity.class);
+                startActivity(intent);
+                return true;
+            }
+            return false;
+        });
     }
 
     private void setupGridClickListeners() {
