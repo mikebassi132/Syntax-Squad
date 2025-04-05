@@ -1,3 +1,5 @@
+package com.example.schoolboardapp;
+
 public class AppointmentTime {
     private String time;
     private boolean isAvailable;
