@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Graduation Plan"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <TextView android:text="Credits Completed:" />
+                <TextView android:id="@+id/tvCreditsCompleted" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="Credits Remaining:" />
+                <TextView android:id="@+id/tvCreditsRemaining" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="Graduation Date:" />
+                <TextView android:id="@+id/tvGraduationDate" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="Program Name:" />
+                <TextView android:id="@+id/tvProgramName" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="Status:" />
+                <TextView android:id="@+id/tvStatus" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>

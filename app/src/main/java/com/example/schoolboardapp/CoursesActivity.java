@@ -4,13 +4,13 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.example.schoolboardapp.Course;
 import java.util.ArrayList;
 
 public class CoursesActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    CourseAdapter courseAdapter;
+    com.example.schoolboardapp.CourseAdapter courseAdapter;
     ArrayList<Course> courseList;
 
     @Override
@@ -27,7 +27,7 @@ public class CoursesActivity extends AppCompatActivity {
         courseList.add(new Course("MATH-303", "Jane Doe"));
         courseList.add(new Course("TEST-101", "Prof. Placeholder"));
 
-        courseAdapter = new CourseAdapter(courseList);
+        courseAdapter = new com.example.schoolboardapp.CourseAdapter(courseList);
         recyclerView.setAdapter(courseAdapter);
     }
 }
