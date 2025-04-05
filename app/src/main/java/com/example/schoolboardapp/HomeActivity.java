@@ -1,5 +1,6 @@
 package com.example.schoolboardapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -18,9 +19,14 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupGridClickListeners() {
-        findViewById(R.id.itemAppointments).setOnClickListener(v ->
-                showToast("Appointments clicked"));
+        // Set up click listener for the "Appointments" grid item
+        findViewById(R.id.itemAppointments).setOnClickListener(v -> {
+            // Create intent to navigate to AppointmentsActivity
+            Intent intent = new Intent(HomeActivity.this, AppointmentsActivity.class);
+            startActivity(intent);  // This starts the AppointmentsActivity
+        });
 
+        // Example for other grid items that show toast messages
         findViewById(R.id.itemMap).setOnClickListener(v ->
                 showToast("Map clicked"));
 

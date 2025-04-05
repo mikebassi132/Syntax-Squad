@@ -30,4 +30,24 @@
     <string name="grad_plan">Grad Plan</string>
     <string name="grad_plan_desc">Graduation plan icon</string>
 
+    <!-- Appointment Types -->
+    <string-array name="appointment_types">
+        <item>Professor</item>
+        <item>Advisor</item>
+        <item>Counselor</item>
+    </string-array>
+
+    <!-- Professors -->
+    <string-array name="professors">
+        <item>Professor 1</item>
+        <item>Professor 2</item>
+        <item>Professor 3</item>
+    </string-array>
+
+    <!-- Available Times -->
+    <string-array name="available_times">
+        <item>4:00 PM</item>
+        <item>5:00 PM</item>
+        <item>6:00 PM</item>
+    </string-array>
 </resources>
