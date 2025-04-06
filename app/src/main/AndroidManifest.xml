@@ -33,6 +33,10 @@
 
         <!-- 🎉 Events Page -->
         <activity android:name=".EventsActivity" />
+        <!--Courses Page -->
+        <activity android:name=".CoursesActivity" />
+        <activity android:name=".CourseDetailActivity" />
+
         <!-- Profile Page -->
         <activity android:name=".ProfileActivity" />
 
