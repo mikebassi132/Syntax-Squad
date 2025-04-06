@@ -31,14 +31,13 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupGridClickListeners() {
-        // Set up click listener for the "Appointments" grid item
+        // "Appointments"
         findViewById(R.id.itemAppointments).setOnClickListener(v -> {
-            // Create intent to navigate to AppointmentsActivity
             Intent intent = new Intent(HomeActivity.this, AppointmentsActivity.class);
-            startActivity(intent);  // This starts the AppointmentsActivity
+            startActivity(intent);
         });
 
-        // Example for other grid items that show toast messages
+        // Others showing toast
         findViewById(R.id.itemMap).setOnClickListener(v ->
                 showToast("Map clicked"));
 
@@ -63,8 +62,12 @@ public class HomeActivity extends AppCompatActivity {
         findViewById(R.id.itemAid).setOnClickListener(v ->
                 showToast("Financial Aid clicked"));
 
-        findViewById(R.id.itemGradPlan).setOnClickListener(v ->
-                showToast("Grad Plan clicked"));
+        //  Grad Plan now opens GradPlanActivity instead of showing toast
+        LinearLayout gradPlanCard = findViewById(R.id.itemGradPlan);
+        gradPlanCard.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, GradPlanActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void showToast(String message) {

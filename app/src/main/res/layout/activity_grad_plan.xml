@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:padding="16dp"
+    android:background="#FAFAFA">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,43 +11,109 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Graduation Plan"
-            android:textSize="24sp"
+            android:text="🎓 Graduation Plan"
+            android:textSize="22sp"
             android:textStyle="bold"
+            android:textColor="#2E3A59"
             android:layout_marginBottom="16dp" />
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:stretchColumns="1">
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
-            <TableRow>
-                <TextView android:text="Credits Completed:" />
-                <TextView android:id="@+id/tvCreditsCompleted" />
-            </TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Credits Completed:"
+                android:textStyle="bold" />
 
-            <TableRow>
-                <TextView android:text="Credits Remaining:" />
-                <TextView android:id="@+id/tvCreditsRemaining" />
-            </TableRow>
+            <TextView
+                android:id="@+id/tvCreditsCompleted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-            <TableRow>
-                <TextView android:text="Graduation Date:" />
-                <TextView android:id="@+id/tvGraduationDate" />
-            </TableRow>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
-            <TableRow>
-                <TextView android:text="Program Name:" />
-                <TextView android:id="@+id/tvProgramName" />
-            </TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Credits Remaining:"
+                android:textStyle="bold" />
 
-            <TableRow>
-                <TextView android:text="Status:" />
-                <TextView android:id="@+id/tvStatus" />
-            </TableRow>
-        </TableLayout>
+            <TextView
+                android:id="@+id/tvCreditsRemaining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Graduation Date:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvGraduationDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Program Name:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvProgramName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Status:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
     </LinearLayout>
 </ScrollView>
