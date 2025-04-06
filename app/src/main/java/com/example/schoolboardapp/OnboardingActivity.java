@@ -13,8 +13,8 @@ import java.util.List;
 public class OnboardingActivity extends AppCompatActivity {
 
     private ViewPager2 onboardingViewPager;
-    private Button buttonNext, buttonSkip;
-    private OnboardingItemAdapter adapter;
+    private Button nextButton;
+    private OnboardingAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,52 +22,70 @@ public class OnboardingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_onboarding);
 
         onboardingViewPager = findViewById(R.id.onboardingViewPager);
-        buttonNext = findViewById(R.id.buttonNext);
-        buttonSkip = findViewById(R.id.buttonSkip);
+        nextButton = findViewById(R.id.nextButton);
+        Button skipButton = findViewById(R.id.skipButton);
+        skipButton.setOnClickListener(v -> {
+            startActivity(new Intent(OnboardingActivity.this, LoginActivity.class));
+            finish(); // Prevent going back to onboarding
+        });
+
 
         setupOnboardingItems();
 
-        buttonNext.setOnClickListener(v -> {
-            if (onboardingViewPager.getCurrentItem() + 1 < adapter.getItemCount()) {
-                onboardingViewPager.setCurrentItem(onboardingViewPager.getCurrentItem() + 1);
-            } else {
-                navigateToLogin();
+        onboardingViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                if (position == adapter.getItemCount() - 1) {
+                    nextButton.setText("Get Started");
+                } else {
+                    nextButton.setText("Next");
+                }
             }
         });
 
-        buttonSkip.setOnClickListener(v -> navigateToLogin());
+        nextButton.setOnClickListener(v -> {
+            if (onboardingViewPager.getCurrentItem() < adapter.getItemCount() - 1) {
+                onboardingViewPager.setCurrentItem(onboardingViewPager.getCurrentItem() + 1);
+            } else {
+                startActivity(new Intent(OnboardingActivity.this, LoginActivity.class));
+                finish(); // So the user can't go back to onboarding
+            }
+        });
     }
 
     private void setupOnboardingItems() {
         List<OnboardingItem> items = new ArrayList<>();
 
-        items.add(new OnboardingItem(R.drawable.onboarding_image1,
-                "Welcome to goUFV!",
-                "Access UFV resources, connect with campus life, and stay informed—anytime, anywhere.",
-                1,
-                934,
-                1176)); // GREEN
+        items.add(new OnboardingItem(
+                R.drawable.onboarding_image1,
+                "Welcome to UFV!",
+                "Access UFV resources, connect with campus life.",
+                1,   // backgroundType (green top)
+                626, // width in dp
+                476  // height in dp
+        ));
 
-        items.add(new OnboardingItem(R.drawable.onboarding_image2,
-                "Explore UFV, Inside and Out",
-                "Navigate classrooms, cafes, study areas, and more with an immersive virtual experience. Discover every corner of campus from wherever you are",
-                0,
-                1250,
-                1350)); // WHITE
+        items.add(new OnboardingItem(
+                R.drawable.onboarding_image2,
+                "Explore Campus",
+                "Navigate classrooms, cafes, and more.",
+                0,   // backgroundType (white)
+                300, // width in dp
+                300  // height in dp
+        ));
 
-        items.add(new OnboardingItem(R.drawable.onboarding_image3,
-                "Engage in Classroom Conversations",
-                "Join discussions, ask questions, and collaborate with classmates on course topics. Stay connected.",
-                0,
-                1250,
-                1350)); // WHITE
+        items.add(new OnboardingItem(
+                R.drawable.onboarding_image3,
+                "Engage & Learn",
+                "Collaborate with your peers and instructors.",
+                0,   // backgroundType (white)
+                280, // width in dp
+                280  // height in dp
+        ));
 
-        adapter = new OnboardingItemAdapter(items);
+        adapter = new OnboardingAdapter(items);
         onboardingViewPager.setAdapter(adapter);
     }
 
-    private void navigateToLogin() {
-        startActivity(new Intent(this, LoginActivity.class));
-        finish();
-    }
 }
