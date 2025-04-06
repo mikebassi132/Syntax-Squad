@@ -16,7 +16,7 @@
         <activity android:name=".StudentProfileActivity" />
 
         <!-- 📅 Appointments -->
-        <activity android:name=".AppointmentsActivity" />
+
 
         <!-- 💼 Services -->
         <activity android:name=".ServicesHubActivity" />

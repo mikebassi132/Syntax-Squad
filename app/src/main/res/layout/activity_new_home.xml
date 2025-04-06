@@ -22,9 +22,8 @@
             android:id="@+id/bannerImage"
             android:layout_width="match_parent"
             android:layout_height="111dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/banner_placeholder"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:scaleType="centerCrop" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homeCardRecyclerView"
