@@ -36,6 +36,9 @@
         <!-- Profile Page -->
         <activity android:name=".ProfileActivity" />
 
+        <activity android:name=".MapActivity" />
+
+
 
     </application>
 </manifest>

@@ -60,6 +60,9 @@ public class HomeCardAdapter extends RecyclerView.Adapter<HomeCardAdapter.HomeCa
             }
             else if (title.equalsIgnoreCase("Your Profile")) {
                 context.startActivity(new Intent(context, ProfileActivity.class));
+            } else if (title.equalsIgnoreCase("Campus Map")) {
+                // ✅ Launch MapActivity when "Campus Map" card is tapped
+                context.startActivity(new Intent(context, MapActivity.class));
             }
 
         });

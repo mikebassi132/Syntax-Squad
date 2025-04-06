@@ -39,8 +39,12 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         // Example for other grid items that show toast messages
-        findViewById(R.id.itemMap).setOnClickListener(v ->
-                showToast("Map clicked"));
+        findViewById(R.id.itemMap).setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, MapActivity.class);
+            startActivity(intent);
+        });
+
+
 
         findViewById(R.id.itemEvents).setOnClickListener(v ->
                 showToast("Events clicked"));
