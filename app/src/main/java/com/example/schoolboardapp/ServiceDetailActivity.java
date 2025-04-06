@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,5 +48,22 @@ public class ServiceDetailActivity extends AppCompatActivity {
                 Toast.makeText(this, "No booking link available", Toast.LENGTH_SHORT).show();
             }
         });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_home) {
+                startActivity(new Intent(ServiceDetailActivity.this, NewHomeActivity.class));
+                return true;
+            } else if (itemId == R.id.nav_courses) {
+                startActivity(new Intent(ServiceDetailActivity.this, CoursesActivity.class));
+                return true;
+            } else if (itemId == R.id.nav_profile) {
+                startActivity(new Intent(ServiceDetailActivity.this, StudentProfileActivity.class));
+                return true;
+            }
+            return false;
+        });
+
     }
 }

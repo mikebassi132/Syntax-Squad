@@ -6,6 +6,9 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.content.Intent;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,5 +77,23 @@ public class ServicesHubActivity extends AppCompatActivity {
         recyclerView.setAdapter(new ServiceItemAdapter(items));
 
         backButton.setOnClickListener(v -> finish());
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.nav_home) {
+                startActivity(new Intent(ServicesHubActivity.this, NewHomeActivity.class));
+                return true;
+            } else if (itemId == R.id.nav_courses) {
+                startActivity(new Intent(ServicesHubActivity.this, CoursesActivity.class));
+                return true;
+            } else if (itemId == R.id.nav_profile) {
+                startActivity(new Intent(ServicesHubActivity.this, StudentProfileActivity.class));
+                return true;
+            }
+            return false;
+        });
+
     }
 }
