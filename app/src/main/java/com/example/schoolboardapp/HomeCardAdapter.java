@@ -53,7 +53,8 @@ public class HomeCardAdapter extends RecyclerView.Adapter<HomeCardAdapter.HomeCa
             } else if (title.equalsIgnoreCase("Your Courses")) {
                 // Add your own CourseActivity here
             } else if (title.equalsIgnoreCase("Upcoming Events")) {
-                // Future feature
+                context.startActivity(new Intent(context, EventsActivity.class));
+
             } else if (title.equalsIgnoreCase("Book an Appointment")) {
                 context.startActivity(new Intent(context, AppointmentsActivity.class));
             }
