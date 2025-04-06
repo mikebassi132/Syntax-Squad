@@ -30,6 +30,14 @@
     <string name="grad_plan">Grad Plan</string>
     <string name="grad_plan_desc">Graduation plan icon</string>
 
+    <string name="graduation_plan">Graduation Plan</string>
+    <string name="credits_completed">Credits Completed:</string>
+    <string name="credits_remaining">Credits Remaining:</string>
+    <string name="graduation_date">Graduation Date:</string>
+    <string name="program_name">Program Name:</string>
+    <string name="status">Status:</string>
+
+
     <!-- Appointment Types -->
     <string-array name="appointment_types">
         <item>Professor</item>

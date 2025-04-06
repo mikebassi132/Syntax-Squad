@@ -14,7 +14,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🎓 Graduation Plan"
+            android:text="@string/graduation_plan"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="#2E3A59"
