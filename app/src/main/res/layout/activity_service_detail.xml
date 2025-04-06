@@ -14,34 +14,10 @@
         android:layout_weight="1"
         android:padding="16dp">
 
-<<<<<<< HEAD
-        <!-- 🔙 Back Button -->
-        <!-- Back Button -->
-        <ImageView
-            android:id="@+id/backButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="start"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:contentDescription="Back"
-            android:focusable="true" />
-
-
-        <!-- 🖼️ Banner Image -->
-        <ImageView
-            android:id="@+id/serviceImage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="16dp"
-            android:scaleType="centerCrop" />
-=======
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
->>>>>>> 5b3b75a00bb2bb9092c093da9d1173752508505f
 
             <!-- 🔙 Back Button -->
             <ImageView

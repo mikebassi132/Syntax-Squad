@@ -28,13 +28,15 @@ public class HomeCardAdapter extends RecyclerView.Adapter<HomeCardAdapter.HomeCa
     @NonNull
     @Override
     public HomeCardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new HomeCardViewHolder(LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.home_card_item, parent, false));
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.home_card_item, parent, false);
+        return new HomeCardViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull HomeCardViewHolder holder, int position) {
         HomeCardItem item = items.get(position);
+
         holder.cardImage.setImageResource(item.getImageRes());
         holder.cardTitle.setText(item.getTitle());
         holder.cardDescription.setText(item.getDescription());
@@ -44,24 +46,31 @@ public class HomeCardAdapter extends RecyclerView.Adapter<HomeCardAdapter.HomeCa
         bg.setCornerRadius(20f);
         holder.cardTextContainer.setBackground(bg);
 
-        // ✅ Handle clicks based on title
         holder.itemView.setOnClickListener(v -> {
-            String title = item.getTitle();
+            Intent intent = null;
+            String title = item.getTitle().toLowerCase();
 
-            if (title.equalsIgnoreCase("Services Hub")) {
-                context.startActivity(new Intent(context, ServicesHubActivity.class));
-            } else if (title.equalsIgnoreCase("Your Courses")) {
-                // Add your own CourseActivity here
-            } else if (title.equalsIgnoreCase("Upcoming Events")) {
-                context.startActivity(new Intent(context, EventsActivity.class));
-
-            } else if (title.equalsIgnoreCase("Book an Appointment")) {
-                context.startActivity(new Intent(context, AppointmentsActivity.class));
+            switch (title) {
+                case "services hub":
+                    intent = new Intent(context, ServicesHubActivity.class);
+                    break;
+                case "your courses":
+                    intent = new Intent(context, CoursesActivity.class); // ✅ Link it here if not yet
+                    break;
+                case "upcoming events":
+                    intent = new Intent(context, EventsActivity.class);
+                    break;
+                case "book an appointment":
+                    intent = new Intent(context, AppointmentsActivity.class);
+                    break;
+                case "your profile":
+                    intent = new Intent(context, ProfileActivity.class);
+                    break;
             }
-            else if (title.equalsIgnoreCase("Your Profile")) {
-                context.startActivity(new Intent(context, ProfileActivity.class));
-            }
 
+            if (intent != null) {
+                context.startActivity(intent);
+            }
         });
     }
 
