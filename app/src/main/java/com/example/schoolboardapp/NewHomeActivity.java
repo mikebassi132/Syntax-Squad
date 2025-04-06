@@ -36,8 +36,7 @@ public class NewHomeActivity extends AppCompatActivity {
         items.add(new HomeCardItem(R.drawable.img_courses, "Your Courses", "Track enrolled classes", 0xFF7CB232));
         items.add(new HomeCardItem(R.drawable.img_events, "Upcoming Events", "Stay updated with campus life", 0xFF7CB232));
         items.add(new HomeCardItem(R.drawable.img_appointment, "Book an Appointment", "Meet advisors, profs, counselors", 0xFF7CB232));
-        items.add(new HomeCardItem(R.drawable.img_appointment, "Your Profile", "Look at your Profile", 0xFF7CB232));
-        items.add(new HomeCardItem(R.drawable.img_map, "Campus Map", "Zoom in/out on campus layout", 0xFF7CB232));
+        items.add(new HomeCardItem(R.drawable.img_profile, "Your Profile", "View student details & FAQ", 0xFF7CB232));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new HomeCardAdapter(items, this));

@@ -1,5 +1,9 @@
 package com.example.schoolboardapp;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseUser;
+
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -8,6 +12,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseUser;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -41,8 +52,21 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener(authResult -> {
-                    Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show();
-                    finish(); // Optionally go back to login
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    if (user != null) {
+                        String uid = user.getUid();
+                        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("students");
+
+                        // Save email under /students/UID/
+                        dbRef.child(uid).child("email").setValue(email)
+                                .addOnSuccessListener(aVoid -> {
+                                    Toast.makeText(this, "Registered and saved to DB!", Toast.LENGTH_SHORT).show();
+                                    finish(); // Return to login screen
+                                })
+                                .addOnFailureListener(e ->
+                                        Toast.makeText(this, "Database error: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                                );
+                    }
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Registration failed: " + e.getMessage(), Toast.LENGTH_LONG).show();

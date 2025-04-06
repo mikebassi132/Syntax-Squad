@@ -1,14 +1,11 @@
 package com.example.schoolboardapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -18,33 +15,14 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         setupGridClickListeners();
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.nav_courses) {
-                Intent intent = new Intent(HomeActivity.this, CoursesActivity.class);
-                startActivity(intent);
-                return true;
-            }
-            return false;
-        });
     }
 
     private void setupGridClickListeners() {
-        // Set up click listener for the "Appointments" grid item
-        findViewById(R.id.itemAppointments).setOnClickListener(v -> {
-            // Create intent to navigate to AppointmentsActivity
-            Intent intent = new Intent(HomeActivity.this, AppointmentsActivity.class);
-            startActivity(intent);  // This starts the AppointmentsActivity
-        });
+        findViewById(R.id.itemAppointments).setOnClickListener(v ->
+                showToast("Appointments clicked"));
 
-        // Example for other grid items that show toast messages
-        findViewById(R.id.itemMap).setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, MapActivity.class);
-            startActivity(intent);
-        });
-
-
+        findViewById(R.id.itemMap).setOnClickListener(v ->
+                showToast("Map clicked"));
 
         findViewById(R.id.itemEvents).setOnClickListener(v ->
                 showToast("Events clicked"));
@@ -55,11 +33,8 @@ public class HomeActivity extends AppCompatActivity {
         findViewById(R.id.itemRegistration).setOnClickListener(v ->
                 showToast("Registration clicked"));
 
-        findViewById(R.id.itemProfile).setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, StudentProfileActivity.class);
-            startActivity(intent);
-        });
-
+        findViewById(R.id.itemProfile).setOnClickListener(v ->
+                showToast("Student Profile clicked"));
 
         findViewById(R.id.itemInfo).setOnClickListener(v ->
                 showToast("Information clicked"));
