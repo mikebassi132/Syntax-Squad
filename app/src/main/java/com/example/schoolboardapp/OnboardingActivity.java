@@ -59,8 +59,9 @@ public class OnboardingActivity extends AppCompatActivity {
 
         items.add(new OnboardingItem(
                 R.drawable.onboarding_image1,
-                "Welcome to UFV!",
-                "Access UFV resources, connect with campus life.",
+                "Welcome to goUFV!",
+                "Access UFV resources, connect with campus life, and stay informed—anytime, anywhere.\n" +
+                        "\n",
                 1,   // backgroundType (green top)
                 626, // width in dp
                 476  // height in dp
@@ -68,20 +69,20 @@ public class OnboardingActivity extends AppCompatActivity {
 
         items.add(new OnboardingItem(
                 R.drawable.onboarding_image2,
-                "Explore Campus",
-                "Navigate classrooms, cafes, and more.",
+                "Explore UFV \nInside and Out",
+                "Navigate classrooms, cafes, study areas, and more with an immersive virtual experience. Discover every corner of campus from wherever you are",
                 0,   // backgroundType (white)
-                300, // width in dp
-                300  // height in dp
+                626, // width in dp
+                500  // height in dp
         ));
 
         items.add(new OnboardingItem(
                 R.drawable.onboarding_image3,
                 "Engage & Learn",
-                "Collaborate with your peers and instructors.",
+                "Join discussions, ask questions, and collaborate with classmates on course topics. Stay connected",
                 0,   // backgroundType (white)
-                280, // width in dp
-                280  // height in dp
+                620, // width in dp
+                480  // height in dp
         ));
 
         adapter = new OnboardingAdapter(items);
