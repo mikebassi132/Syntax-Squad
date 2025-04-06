@@ -6,12 +6,24 @@
     android:background="#FFFFFF">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <!-- Event Cards -->
-        <include layout="@layout/event_card" />
+        <!-- 🔙 Back Button -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back_arrow"
+            android:layout_gravity="start"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="Back"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- 🧩 Event Cards -->
         <include layout="@layout/event_card" />
         <include layout="@layout/event_card" />
         <include layout="@layout/event_card" />
