@@ -21,9 +21,6 @@ public class HomeActivity extends AppCompatActivity {
         findViewById(R.id.itemAppointments).setOnClickListener(v ->
                 showToast("Appointments clicked"));
 
-        findViewById(R.id.itemMap).setOnClickListener(v ->
-                showToast("Map clicked"));
-
         findViewById(R.id.itemEvents).setOnClickListener(v ->
                 showToast("Events clicked"));
 

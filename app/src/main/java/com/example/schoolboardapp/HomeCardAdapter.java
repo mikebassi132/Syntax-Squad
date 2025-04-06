@@ -66,6 +66,8 @@ public class HomeCardAdapter extends RecyclerView.Adapter<HomeCardAdapter.HomeCa
                 case "your profile":
                     intent = new Intent(context, ProfileActivity.class);
                     break;
+                case "campus map":
+                    intent = new Intent(context, MapActivity.class);
             }
 
             if (intent != null) {
