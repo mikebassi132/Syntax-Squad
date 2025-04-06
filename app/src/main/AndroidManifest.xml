@@ -33,6 +33,9 @@
 
         <!-- 🎉 Events Page -->
         <activity android:name=".EventsActivity" />
+        <!-- Profile Page -->
+        <activity android:name=".ProfileActivity" />
+
 
     </application>
 </manifest>
