@@ -16,6 +16,11 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
+<<<<<<< HEAD
+            android:layout_height="111dp"
+            android:layout_marginBottom="16dp"
+            android:scaleType="centerCrop" />
+=======
             android:layout_height="wrap_content">
 
             <TextView
@@ -51,4 +56,5 @@
         android:background="?android:attr/windowBackground"
         app:menu="@menu/bottom_nav_menu" />
 </LinearLayout>
+>>>>>>> 5b3b75a00bb2bb9092c093da9d1173752508505f
 
