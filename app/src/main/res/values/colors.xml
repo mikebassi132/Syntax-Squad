@@ -7,4 +7,6 @@
     <color name="colorPrimaryVariant">@color/ufv_green</color>
     <color name="colorOnPrimary">#FFFFFF</color> <!-- white text on green -->
     <color name="on_ufv_green">#FFFFFF</color> <!-- White text for buttons -->
+    <color name="green">#7CB232</color>
+
 </resources>
