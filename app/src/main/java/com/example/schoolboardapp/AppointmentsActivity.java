@@ -23,9 +23,9 @@ public class AppointmentsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         List<AppointmentOption> options = new ArrayList<>();
-        options.add(new AppointmentOption(R.drawable.ic_launcher_foreground, "Book with Professor", "Talk about assignments or grades."));
-        options.add(new AppointmentOption(R.drawable.ic_launcher_foreground, "Book with Advisor", "Plan your courses and graduation path."));
-        options.add(new AppointmentOption(R.drawable.ic_launcher_foreground, "Book with Counselor", "Discuss personal or mental health issues."));
+        options.add(new AppointmentOption(R.drawable.ic_professor, "Book with Professor", "Talk about assignments or grades."));
+        options.add(new AppointmentOption(R.drawable.ic_advisor, "Book with Advisor", "Plan your courses and graduation path."));
+        options.add(new AppointmentOption(R.drawable.ic_counselor, "Book with Counselor", "Discuss personal or mental health issues."));
 
         AppointmentOptionAdapter adapter = new AppointmentOptionAdapter(this, options);
         recyclerView.setAdapter(adapter);
