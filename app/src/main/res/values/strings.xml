@@ -29,6 +29,7 @@
 
     <string name="grad_plan">Grad Plan</string>
     <string name="grad_plan_desc">Graduation plan icon</string>
+    <string name="graduation_plan_title">Graduation Plan</string>
 
     <string name="graduation_plan">Graduation Plan</string>
     <string name="credits_completed">Credits Completed:</string>

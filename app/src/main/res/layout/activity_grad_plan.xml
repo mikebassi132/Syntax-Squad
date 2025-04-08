@@ -10,110 +10,71 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Basic Info -->
+        <TextView android:id="@+id/title"
+            android:text="Graduation Plan"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#2E3A59"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView android:id="@+id/tvCreditsCompleted" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:id="@+id/tvCreditsRemaining" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:id="@+id/tvGraduationDate" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:id="@+id/tvProgramName" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:id="@+id/tvStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+        <!-- Current Semester Courses -->
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/tvCurrentSemesterHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Winter 2025"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp" />
+
+        <LinearLayout
+            android:id="@+id/layoutCurrentSemester"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <!-- Course History -->
+        <TextView
+            android:text="Course History"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/layoutCourseHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <ProgressBar
+            android:id="@+id/progressCredits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="0"
+            android:max="100"
+            android:indeterminate="false"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            />
+
+        <Button
+            android:id="@+id/btnDownloadTranscript"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/graduation_plan"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#2E3A59"
-            android:layout_marginBottom="16dp" />
+            android:text="Download Transcript"
+            android:layout_marginTop="24dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Credits Completed:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvCreditsCompleted"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Credits Remaining:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvCreditsRemaining"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Graduation Date:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvGraduationDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Program Name:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvProgramName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Status:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>

@@ -55,7 +55,7 @@ public class HomeCardAdapter extends RecyclerView.Adapter<HomeCardAdapter.HomeCa
                     intent = new Intent(context, ServicesHubActivity.class);
                     break;
                 case "your courses":
-                    intent = new Intent(context, CoursesActivity.class); // ✅ Link it here if not yet
+                    intent = new Intent(context, CoursesActivity.class);
                     break;
                 case "upcoming events":
                     intent = new Intent(context, EventsActivity.class);
@@ -68,6 +68,10 @@ public class HomeCardAdapter extends RecyclerView.Adapter<HomeCardAdapter.HomeCa
                     break;
                 case "campus map":
                     intent = new Intent(context, MapActivity.class);
+                    break;
+                case "graduation plan":
+                    intent = new Intent(context, GradPlanActivity.class);
+                    break;
             }
 
             if (intent != null) {
