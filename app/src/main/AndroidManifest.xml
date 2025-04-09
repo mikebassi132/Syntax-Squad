@@ -24,12 +24,11 @@
             </intent-filter>
         </activity>
 
-<<<<<<< HEAD
         <activity android:name=".HomeActivity" />
         <activity android:name=".AppointmentsActivity" />
         <activity android:name=".CoursesActivity" />
         <activity android:name=".NewHomeActivity" />
-=======
+
         <!-- 🎉 Events Page -->
         <activity android:name=".EventsActivity" />
         <!--Courses Page -->
