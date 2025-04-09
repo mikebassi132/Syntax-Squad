@@ -24,10 +24,26 @@
             </intent-filter>
         </activity>
 
+<<<<<<< HEAD
         <activity android:name=".HomeActivity" />
         <activity android:name=".AppointmentsActivity" />
         <activity android:name=".CoursesActivity" />
         <activity android:name=".NewHomeActivity" />
+=======
+        <!-- 🎉 Events Page -->
+        <activity android:name=".EventsActivity" />
+        <!--Courses Page -->
+        <activity android:name=".CoursesActivity" />
+        <activity android:name=".CourseDetailActivity" />
+
+        <!-- Profile Page -->
+        <activity android:name=".ProfileActivity" />
+
+        <activity android:name=".MapActivity" />
+
+        <activity android:name=".AppointmentsActivity" />
+
+>>>>>>> 34da96b314a65a277d8f05d3a2bb66a7311fea68
 
     </application>
 </manifest>
