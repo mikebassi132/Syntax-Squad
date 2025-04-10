@@ -45,13 +45,12 @@ public class GradPlanActivity extends AppCompatActivity {
         btnDownloadTranscript = findViewById(R.id.btnDownloadTranscript);
 
         // 👇 Use your UID (or current logged-in user)
-       String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-
-         DatabaseReference ref = FirebaseDatabase.getInstance()
-              .getReference("students")
-              .child(uid)
-               .child("student1");
+        DatabaseReference ref = FirebaseDatabase.getInstance()
+                .getReference("students")
+                .child(uid)
+                .child("student1");
 
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -62,8 +61,13 @@ public class GradPlanActivity extends AppCompatActivity {
                 }
 
                 try {
-                    int creditsCompleted = snapshot.child("creditsCompleted").getValue(Integer.class);
-                    int creditsRemaining = snapshot.child("creditsRemaining").getValue(Integer.class);
+                    // ✅ Safe null-handling for credits
+                    Integer creditsCompletedObj = snapshot.child("creditsCompleted").getValue(Integer.class);
+                    Integer creditsRemainingObj = snapshot.child("creditsRemaining").getValue(Integer.class);
+
+                    int creditsCompleted = creditsCompletedObj != null ? creditsCompletedObj : 0;
+                    int creditsRemaining = creditsRemainingObj != null ? creditsRemainingObj : 0;
+
                     String graduationDate = String.valueOf(snapshot.child("graduationDate").getValue());
                     String programName = String.valueOf(snapshot.child("programName").getValue());
                     String status = String.valueOf(snapshot.child("status").getValue());
@@ -77,7 +81,7 @@ public class GradPlanActivity extends AppCompatActivity {
 
                     // Progress bar
                     int total = creditsCompleted + creditsRemaining;
-                    int percentage = (int) ((creditsCompleted * 100.0f) / total);
+                    int percentage = total > 0 ? (int) ((creditsCompleted * 100.0f) / total) : 0;
                     progressCredits.setProgress(percentage);
                     addTextView(layoutCurrentSemester, percentage + "% Completed");
 
