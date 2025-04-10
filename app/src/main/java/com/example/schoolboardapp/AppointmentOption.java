@@ -1,17 +1,19 @@
 package com.example.schoolboardapp;
-
 public class AppointmentOption {
-    private int imageResId;
-    private String title;
-    private String description;
+    private String professorName;
+    private String availableTime;
 
-    public AppointmentOption(int imageResId, String title, String description) {
-        this.imageResId = imageResId;
-        this.title = title;
-        this.description = description;
+    public AppointmentOption(String professorName, String availableTime) {
+        this.professorName = professorName;
+        this.availableTime = availableTime;
     }
 
-    public int getImageResId() { return imageResId; }
-    public String getTitle() { return title; }
-    public String getDescription() { return description; }
+    public String getProfessorName() {
+        return professorName;
+    }
+
+    public String getAvailableTime() {
+        return availableTime;
+    }
 }
+
