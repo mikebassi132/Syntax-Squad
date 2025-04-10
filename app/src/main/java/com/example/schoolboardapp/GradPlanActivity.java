@@ -44,7 +44,7 @@ public class GradPlanActivity extends AppCompatActivity {
         progressCredits = findViewById(R.id.progressCredits);
         btnDownloadTranscript = findViewById(R.id.btnDownloadTranscript);
 
-        // 👇 Use your UID (or current logged-in user)
+        // Get current user UID
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         DatabaseReference ref = FirebaseDatabase.getInstance()
@@ -61,7 +61,7 @@ public class GradPlanActivity extends AppCompatActivity {
                 }
 
                 try {
-                    // ✅ Safe null-handling for credits
+                    // Safely retrieve credits
                     Integer creditsCompletedObj = snapshot.child("creditsCompleted").getValue(Integer.class);
                     Integer creditsRemainingObj = snapshot.child("creditsRemaining").getValue(Integer.class);
 
@@ -72,60 +72,68 @@ public class GradPlanActivity extends AppCompatActivity {
                     String programName = String.valueOf(snapshot.child("programName").getValue());
                     String status = String.valueOf(snapshot.child("status").getValue());
 
-                    // Display info
                     tvCreditsCompleted.setText("Credits Completed: " + creditsCompleted);
                     tvCreditsRemaining.setText("Credits Remaining: " + creditsRemaining);
                     tvGraduationDate.setText("Graduation Date: " + graduationDate);
                     tvProgramName.setText("Program Name: " + programName);
                     tvStatus.setText("Status: " + status);
 
-                    // Progress bar
                     int total = creditsCompleted + creditsRemaining;
                     int percentage = total > 0 ? (int) ((creditsCompleted * 100.0f) / total) : 0;
                     progressCredits.setProgress(percentage);
                     addTextView(layoutCurrentSemester, percentage + "% Completed");
 
-                    // ✅ Current Semester: winter2025
+                    // ✅ Current Semester check
                     DataSnapshot winterCourses = snapshot.child("currentSemester").child("winter2025");
-                    for (DataSnapshot courseSnap : winterCourses.getChildren()) {
-                        GradCourse course = courseSnap.getValue(GradCourse.class);
-                        if (course != null) {
-                            String text = "• " + course.name + " (" + course.credits + " credits)";
-                            transcriptCurrent.add(text);
-                            addTextView(layoutCurrentSemester, text);
-                        }
-                    }
-
-                    // ✅ Course History
-                    DataSnapshot courseHistory = snapshot.child("courseHistory");
-                    for (DataSnapshot semesterSnap : courseHistory.getChildren()) {
-                        String semester = semesterSnap.getKey();
-                        LinearLayout semesterLayout = new LinearLayout(GradPlanActivity.this);
-                        semesterLayout.setOrientation(LinearLayout.VERTICAL);
-                        semesterLayout.setVisibility(View.GONE);
-
-                        for (DataSnapshot courseSnap : semesterSnap.getChildren()) {
+                    if (winterCourses.exists() && winterCourses.hasChildren()) {
+                        for (DataSnapshot courseSnap : winterCourses.getChildren()) {
                             GradCourse course = courseSnap.getValue(GradCourse.class);
                             if (course != null) {
-                                String text = "• " + course.name + " - Grade: " + course.grade + ", Credits: " + course.credits;
-                                transcriptHistory.add(text);
-                                addTextView(semesterLayout, text);
+                                String text = "• " + course.name + " (" + course.credits + " credits)";
+                                transcriptCurrent.add(text);
+                                addTextView(layoutCurrentSemester, text);
                             }
                         }
+                    } else {
+                        addTextView(layoutCurrentSemester, "No current semester data.");
+                    }
 
-                        TextView semesterHeader = new TextView(GradPlanActivity.this);
-                        semesterHeader.setText(semester.substring(0, 1).toUpperCase() + semester.substring(1));
-                        semesterHeader.setTextSize(16);
-                        semesterHeader.setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
-                        semesterHeader.setPadding(0, 16, 0, 4);
-                        semesterHeader.setOnClickListener(v -> {
-                            semesterLayout.setVisibility(
-                                    semesterLayout.getVisibility() == View.GONE ? View.VISIBLE : View.GONE
-                            );
-                        });
+                    // ✅ Course History check
+                    DataSnapshot courseHistory = snapshot.child("courseHistory");
+                    if (courseHistory.exists() && courseHistory.hasChildren()) {
+                        for (DataSnapshot semesterSnap : courseHistory.getChildren()) {
+                            String semester = semesterSnap.getKey();
+                            if (semester == null) continue;
 
-                        layoutCourseHistory.addView(semesterHeader);
-                        layoutCourseHistory.addView(semesterLayout);
+                            LinearLayout semesterLayout = new LinearLayout(GradPlanActivity.this);
+                            semesterLayout.setOrientation(LinearLayout.VERTICAL);
+                            semesterLayout.setVisibility(View.GONE);
+
+                            for (DataSnapshot courseSnap : semesterSnap.getChildren()) {
+                                GradCourse course = courseSnap.getValue(GradCourse.class);
+                                if (course != null) {
+                                    String text = "• " + course.name + " - Grade: " + course.grade + ", Credits: " + course.credits;
+                                    transcriptHistory.add(text);
+                                    addTextView(semesterLayout, text);
+                                }
+                            }
+
+                            TextView semesterHeader = new TextView(GradPlanActivity.this);
+                            semesterHeader.setText(semester.substring(0, 1).toUpperCase() + semester.substring(1));
+                            semesterHeader.setTextSize(16);
+                            semesterHeader.setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
+                            semesterHeader.setPadding(0, 16, 0, 4);
+                            semesterHeader.setOnClickListener(v -> {
+                                semesterLayout.setVisibility(
+                                        semesterLayout.getVisibility() == View.GONE ? View.VISIBLE : View.GONE
+                                );
+                            });
+
+                            layoutCourseHistory.addView(semesterHeader);
+                            layoutCourseHistory.addView(semesterLayout);
+                        }
+                    } else {
+                        addTextView(layoutCourseHistory, "No course history available.");
                     }
 
                 } catch (Exception e) {
