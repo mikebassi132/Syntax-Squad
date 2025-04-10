@@ -28,7 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
         profileAddress = findViewById(R.id.profileAddress);
 
         mAuth = FirebaseAuth.getInstance();
-        dbRef = FirebaseDatabase.getInstance().getReference("students").child("students");
+        dbRef = FirebaseDatabase.getInstance().getReference("students"); // ✅ FIXED
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {

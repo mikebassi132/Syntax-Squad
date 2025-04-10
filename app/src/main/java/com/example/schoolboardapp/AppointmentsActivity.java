@@ -9,17 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-
 
 public class AppointmentsActivity extends AppCompatActivity {
 
@@ -46,7 +40,6 @@ public class AppointmentsActivity extends AppCompatActivity {
         adapter = new AppointmentOptionAdapter(this, options, null);
         recyclerView.setAdapter(adapter);
 
-        // Set click behavior for initial role selection
         adapter.setOnItemClickListener(position -> {
             switch (position) {
                 case 0:
@@ -61,7 +54,7 @@ public class AppointmentsActivity extends AppCompatActivity {
             }
         });
 
-        // Bottom nav
+        // Bottom navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -89,11 +82,13 @@ public class AppointmentsActivity extends AppCompatActivity {
     }
 
     private void fetchAppointmentOptions(String type) {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         DatabaseReference appointmentsRef = FirebaseDatabase.getInstance().getReference()
                 .child("students")
-                .child("student1")
+                .child(uid)
                 .child("appointments")
-                .child(type);
+                .child(type); // ✅ Removed "student1"
 
         appointmentsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -119,7 +114,6 @@ public class AppointmentsActivity extends AppCompatActivity {
                     adapter.setOnItemClickListener(position -> {
                         AppointmentOption selected = availableTimes.get(position);
                         Toast.makeText(AppointmentsActivity.this, "Selected: " + selected.getProfessorName() + " at " + selected.getAvailableTime(), Toast.LENGTH_SHORT).show();
-                        // You could launch a confirmation screen or booking logic here
                     });
 
                 } else {
@@ -134,5 +128,3 @@ public class AppointmentsActivity extends AppCompatActivity {
         });
     }
 }
-
-
