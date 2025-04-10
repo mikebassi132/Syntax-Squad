@@ -87,8 +87,9 @@ public class AppointmentsActivity extends AppCompatActivity {
         DatabaseReference appointmentsRef = FirebaseDatabase.getInstance().getReference()
                 .child("students")
                 .child(uid)
+                .child("student1") // ✅ Fix is here
                 .child("appointments")
-                .child(type); // ✅ Removed "student1"
+                .child(type);
 
         appointmentsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -127,4 +128,5 @@ public class AppointmentsActivity extends AppCompatActivity {
             }
         });
     }
+
 }
